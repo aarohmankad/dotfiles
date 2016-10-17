@@ -6,6 +6,7 @@ alias subl='/opt/sublime_text/sublime_text'
 # Git aliases
 alias clone='git clone'
 alias ginit='git init'
+alias gremote='git remote add'
 alias status='git status'
 alias gdiff='git diff'
 alias add='git add -A'
