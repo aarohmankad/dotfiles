@@ -18,3 +18,6 @@ alias fetch='git fetch'
 
 # g++ aliases
 alias comp='g++'
+
+#PDF reader alias
+alias open='evince'
