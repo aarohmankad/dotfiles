@@ -2,6 +2,7 @@
 alias ..='cd ..'
 alias show='cat'
 alias subl='/opt/sublime_text/sublime_text'
+alias well='ssh -X amank001@well.cs.ucr.edu'
 
 # Git aliases
 alias clone='git clone'
@@ -17,7 +18,12 @@ alias pull='git pull origin master'
 alias fetch='git fetch'
 
 # g++ aliases
-alias comp='g++'
+alias comp='g++ -Werror -Wall'
+alias g11='g++ -std=c++11 -Werror -Wall'
+
+# cppcheck alias
+alias check='cppcheck --enable=all ./'
+alias chck='cppcheck --enable=all'
 
 #PDF reader alias
 alias open='evince'
