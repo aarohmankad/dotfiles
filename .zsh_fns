@@ -9,6 +9,14 @@ function mcd {
     cd $1
 }
 
+function cd() {
+    new_directory="$*";
+    if [ $# -eq 0 ]; then 
+        new_directory=${HOME};
+    fi;
+    builtin cd "${new_directory}" && ls
+}
+
 # Always use correct program to extract files
 function extract {
  if [ -z "$1" ]; then
@@ -49,8 +57,19 @@ function yank {
     return
   fi
 
-  git clone https://aarohmankad@github.com/$1.git
+
+  git clone git@github.com:$1.git
+  
+  dir_name=$(basename $1)
+  cd $dir_name
 }
+
+function acp {
+  ga
+  gc "$1"
+  gph
+}
+
 
 # Get weather
 function weather {
@@ -87,46 +106,6 @@ function csv {
   fi
 
     less $1 | sed -e 's/,,/, ,/g' | column -s, -t | less -#5 -N -S
-}
-
-# Create react native components
-function rn-comp {
-  if [ $# -ne 1 ]; then
-    echo "Usage: rn-comp <component-name>"
-    return
-  fi
-
-  # Create basic files
-  mkdir ./app/components/$1
-  > ./app/components/$1/index.js
-  > ./app/components/$1/$1.js
-  > ./app/components/$1/styles.js;
-
-  # Add boilerplate
-  echo "import $1 from \"./$1\";
-import styles from \"./styles\";
-
-export { $1, styles };" > ./app/components/$1/index.js;
-
-  echo "import EStyleSheet from \"react-native-extended-stylesheet\";
-
-export default EStyleSheet.create({});" > ./app/components/$1/styles.js
-
-  echo "import React from \"react\";
-import propTypes from \"prop-types\";
-import { View, Text } from \"react-native\";
-
-import styles from \"./styles\";
-
-const $1 = () => (
-  <View>
-    <Text>$1 Component</Text>
-  </View>
-);
-
-$1.propTypes = {};
-
-export default $1;" > ./app/components/$1/$1.js
 }
 
 # Boost audio of video file by x dB, can be negative
