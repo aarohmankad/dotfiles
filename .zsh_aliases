@@ -6,11 +6,11 @@ alias diff='icdiff'
 alias enhance='sudo apt update && sudo apt upgrade -y'
 alias zshrl='source ~/.zshrc'
 alias t='touch'
-alias sp='j scratchpad && subl .'
-alias s.='subl .'
+alias sp='j scratchpad && sublime .'
+alias s.='sublime .'
 
 # Overriding Default Commands
-alias mkdir='mkdir -pv'
+alias mkdir='mkdir -p -v'
 alias top='htop'
 alias df='pydf'
 alias cp='gcp -r'
@@ -40,6 +40,7 @@ alias grm='git rebase master'
 # g++ aliases
 alias comp='g++ -Werror -Wall'
 alias g11='g++ -std=c++11 -Werror -Wall'
+alias gpp='g++ -std=c++17 -Werror -Wall'
 
 # vagrant aliases
 alias vup='vagrant up'
